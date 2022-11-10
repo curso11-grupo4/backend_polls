@@ -60,7 +60,7 @@ class InterfaceRepository(Generic[T]):
             _id = ObjectId(id_)
             delattr(item, '_id')
             item_dict = item.__dict__
-            update_item = {"$set", item_dict}
+            update_item = {"$set": item_dict}
             current_collection.update_one({'_id': _id}, update_item)
         else:
             # insert
@@ -125,13 +125,13 @@ class InterfaceRepository(Generic[T]):
         collection_ref = self.data_base[list_[0]._id.collection]
         for item in list:
             _id = ObjectId(item._id)
-            document_ref =  collection_ref.find_one({'_id': _id})
+            document_ref = collection_ref.find_one({'_id': _id})
             document_ref['_id'] = document_ref['_id'].__str__()
             processed_list.append(document_ref)
         return processed_list
 
     def transform_obj_ids(self, document: dict) -> dict:
-        for key in document.key():
+        for key in document.keys():
             value = document.get(key)
             if isinstance(value, ObjectId):
                 document[key] = document[key].__str__()

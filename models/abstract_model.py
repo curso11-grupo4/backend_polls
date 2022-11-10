@@ -3,7 +3,7 @@ from abc import ABCMeta
 
 class AbstractModel(metaclass=ABCMeta):
 
-    def __int__(self, data: dict):
+    def __init__(self, data: dict):
         """
         Este método constructo convierte un diccionario en un objeto
         :param data:

@@ -6,7 +6,7 @@ class PartyController:
 
     def __init__(self):
         print("Party controller ready...")
-        self.party_repository = PartyRepository
+        self.party_repository = PartyRepository()
 
     def index(self) -> list:
         """

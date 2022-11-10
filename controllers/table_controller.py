@@ -52,5 +52,5 @@ class TableController:
         :param table_number_: number of the table
         :return:
         """
-        print("Delete table" + table_number_)
+        print("Delete table " + table_number_)
         return self.table_repository.delete(table_number_)
