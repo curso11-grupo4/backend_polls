@@ -16,7 +16,7 @@ class CandidateController:
         Get all candidate with number of resolution, personal_id, name and lastname
         :return:
         """
-        print("Get all candidate")
+
         return self.candidate_repository.find_all()
 
     def show(self, personal_id_: str) -> dict:
@@ -25,7 +25,7 @@ class CandidateController:
         :param personal_id_:
         :return:
         """
-        print("Get a candidate")
+
         return self.candidate_repository.find_by_id(personal_id_)
 
     def create(self, candidate_: dict) -> dict:
@@ -34,7 +34,7 @@ class CandidateController:
         :param candidate_: a dictionary carries personal id, resolution number, name and lastname
         :return:
         """
-        print("Insert a new candidate")
+
         candidate = Candidate(candidate_)
         return self.candidate_repository.save(candidate)
 
@@ -45,7 +45,7 @@ class CandidateController:
         :param candidate_: a dictionary with resolution number, name and lastname
         :return:
         """
-        print("Update a candidate")
+
         candidate = Candidate(candidate_)
         return self.candidate_repository.update(personal_id_, candidate)
 
@@ -55,7 +55,7 @@ class CandidateController:
         :param personal_id_: personal id of the candidate
         :return:
         """
-        print("Delete candidate" + personal_id_)
+
         return self.candidate_repository.delete(personal_id_)
 
     def party_assign(self, candidate_id: str, party_id: str) -> dict:

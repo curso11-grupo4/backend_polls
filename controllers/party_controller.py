@@ -13,7 +13,6 @@ class PartyController:
         Get all paries with the name and "lema"
         :return:
         """
-        print("Get all parties")
         return self.party_repository.find_all()
 
     def show(self, id_: str) -> dict:
@@ -22,7 +21,6 @@ class PartyController:
         :param id_: party id
         :return:
         """
-        print("Get one party")
         return self.party_repository.find_by_id(id_)
 
     def create(self, party_: dict) -> dict:
@@ -31,7 +29,6 @@ class PartyController:
         :param party_: a dictionary carries the name a "lema"
         :return:
         """
-        print("Insert one party")
         party = Party(party_)
         return self.party_repository.save(party)
 
@@ -42,7 +39,6 @@ class PartyController:
         :param party_:
         :return:
         """
-        print("Update one party")
         party = Party(party_)
         return self.party_repository.update(id_, party)
 
@@ -52,5 +48,4 @@ class PartyController:
         :param id_: party id
         :return:
         """
-        print("Delete one party")
         return self.party_repository.delete(id_)
