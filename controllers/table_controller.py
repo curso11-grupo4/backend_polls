@@ -13,7 +13,6 @@ class TableController:
         Get all tables with the number of them and amount of "cedula" on each table
         :return:
         """
-        print("Get all tables")
         return self.table_repository.find_all()
 
     def show(self, table_number_: str):
@@ -22,7 +21,6 @@ class TableController:
         :param table_number_:
         :return:
         """
-        print("Get table")
         return self.table_repository.find_by_id(table_number_)
 
     def create(self, table_: dict) -> dict:
@@ -31,7 +29,6 @@ class TableController:
         :param table_: a dictionary carries the number of the table and amount of "cedula" on it
         :return:
         """
-        print("Insert table")
         table = Table(table_)
         return self.table_repository.save(table)
 
@@ -42,7 +39,6 @@ class TableController:
         :param table_:
         :return:
         """
-        print("Update tables")
         table = Table(table_)
         return self.table_repository.update(table_number_, table)
 
@@ -52,5 +48,4 @@ class TableController:
         :param table_number_: number of the table
         :return:
         """
-        print("Delete table" + table_number_)
         return self.table_repository.delete(table_number_)
