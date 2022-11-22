@@ -1,11 +1,5 @@
 import json
 
-<<<<<<< HEAD
-from flask import Flask, jsonify
-from flask_cors import CORS, cross_origin
-from waitress import serve
-
-=======
 from flask import Flask
 from flask import jsonify
 from flask_cors import CORS
@@ -15,8 +9,10 @@ from blueprints.candidate_blueprint import candidate_blueprints
 from blueprints.party_blueprint import party_blueprints
 from blueprints.table_blueprint import table_blueprints
 from blueprints.vote_blueprint import vote_blueprints
+from blueprints.reports_blueprint import reports_blueprints
 
->>>>>>> d767541ffcf71fc89fc268763b5ad8773dce1aed
+
+
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -24,10 +20,10 @@ app.register_blueprint(candidate_blueprints)
 app.register_blueprint(party_blueprints)
 app.register_blueprint(vote_blueprints)
 app.register_blueprint(table_blueprints)
+app.register_blueprint(reports_blueprints)
 
 
-
-@app.route("/",methods=['GET'])
+@app.route("/", methods=['GET'])
 def test():
     responder = {"message": "Server running ..."}
     return jsonify(responder)
