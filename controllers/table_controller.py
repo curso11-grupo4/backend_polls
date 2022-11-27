@@ -5,21 +5,23 @@ from repositories.table_repository import TableRepository
 class TableController:
 
     def __init__(self):
-        print("Table controller ready...")
+        """
+        Constructor of the TableController class
+        """
         self.table_repository = TableRepository()
 
     def index(self) -> list:
         """
         Get all tables with the number of them and amount of "cedula" on each table
-        :return:
+        :return: List of a dictionary with all tables
         """
         return self.table_repository.find_all()
 
     def show(self, table_number_: str):
         """
         Get one specific table knowing the number of it
-        :param table_number_:
-        :return:
+        :param table_number_: the number of the table
+        :return: a dictionary oa a specific table
         """
         return self.table_repository.find_by_id(table_number_)
 
@@ -27,7 +29,7 @@ class TableController:
         """
         Insert a new table
         :param table_: a dictionary carries the number of the table and amount of "cedula" on it
-        :return:
+        :return: a dictionary with the information of the new table
         """
         table = Table(table_)
         return self.table_repository.save(table)
@@ -36,8 +38,8 @@ class TableController:
         """
         Update a specific table
         :param table_number_: number of the table
-        :param table_:
-        :return:
+        :param table_: a dictionary with the information of the table
+        :return: a dictionary with a successful update
         """
         table = Table(table_)
         return self.table_repository.update(table_number_, table)
@@ -46,6 +48,6 @@ class TableController:
         """
         Delete a specific table
         :param table_number_: number of the table
-        :return:
+        :return: a dictionary with a successful delete
         """
         return self.table_repository.delete(table_number_)
